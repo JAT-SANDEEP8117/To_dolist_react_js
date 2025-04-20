@@ -4,22 +4,6 @@ A modern, responsive To-Do List application built using React.js and styled with
 
 ---
 
-## 📸 Screenshots
-
-**Main Interface**  
-![Main](./SCREENSHOT/main.png)
-
-**Task Statistics**  
-![Stats](./SCREENSHOT/stats.png)
-
-**Task View**  
-![Task](./SCREENSHOT/task.png)
-
-**Alternative Task View**  
-![Task1](./SCREENSHOT/task1.png)
-
----
-
 ## 🚀 Features
 
 - Add and delete tasks with ease
@@ -44,6 +28,10 @@ A modern, responsive To-Do List application built using React.js and styled with
 ```bash
 .
 ├── SCREENSHOT/
+│   ├── main.png
+│   ├── stats.png
+│   ├── task.png
+│   └── task1.png
 ├── src/
 │   ├── components/        # Reusable UI components
 │   ├── hooks/             # Custom React hooks
@@ -58,6 +46,22 @@ A modern, responsive To-Do List application built using React.js and styled with
 ├── package.json
 └── README.md
 ```
+
+---
+
+## 📸 Screenshots
+
+**Main Interface**  
+![Main](./SCREENSHOT/main.png)
+
+**Task Statistics**  
+![Stats](./SCREENSHOT/stats.png)
+
+**Task View**  
+![Task](./SCREENSHOT/task.png)
+
+**Alternative Task View**  
+![Task1](./SCREENSHOT/task1.png)
 
 ---
 
