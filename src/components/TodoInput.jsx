@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
 
 const TodoInput = ({ onAddTodo }) => {
+  // local state to manage input fields(default values)
   const [text, setText] = useState('');
   const [category, setCategory] = useState('personal');
   const [priority, setPriority] = useState('medium');
   const [dueDate, setDueDate] = useState('');
 
+  // handling  form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text.trim()) {
+      // Passing  the new todo item to the parent
       onAddTodo({
         text,
         category,
         priority,
         dueDate: dueDate || null,
       });
+
+      // clearing the  text input field
       setText('');
-      // Keep the other options as they are for quicker task entry
     }
   };
 
@@ -25,6 +29,7 @@ const TodoInput = ({ onAddTodo }) => {
       onSubmit={handleSubmit}
       className="bg-slate-800/80 dark:bg-slate-800 rounded-lg p-6 shadow-lg mb-6"
     >
+      {/* description of the task  */}
       <div className="mb-4">
         <input
           type="text"
@@ -37,7 +42,9 @@ const TodoInput = ({ onAddTodo }) => {
         />
       </div>
 
+      {/* dropdowns for selecting  category and priority of the tasks */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        {/* task category selector */}
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
@@ -52,6 +59,7 @@ const TodoInput = ({ onAddTodo }) => {
           <option value="finance">Finance</option>
         </select>
 
+        {/* task priority selector */}
         <select
           value={priority}
           onChange={(e) => setPriority(e.target.value)}
@@ -65,6 +73,7 @@ const TodoInput = ({ onAddTodo }) => {
         </select>
       </div>
 
+      {/*due date selection  */}
       <div className="mb-4">
         <input
           type="date"
@@ -76,6 +85,7 @@ const TodoInput = ({ onAddTodo }) => {
         />
       </div>
 
+      {/* submit button for adding the tasks  */}
       <button
         type="submit"
         className={`w-full p-3 text-white rounded-lg font-medium transition-all transform

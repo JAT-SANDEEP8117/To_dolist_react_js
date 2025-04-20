@@ -3,24 +3,23 @@ import { saveTheme, loadTheme } from '../utils/localStorage';
 
 export const useTheme = () => {
   const [theme, setTheme] = useState(() => {
-    // Check system preference first
+    // Checking the  system preferences for dark mode
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return 'dark';
+      return 'dark'; // Default to dark theme if system prefers dark mode
     }
-    return loadTheme() || 'light';
+    return loadTheme() || 'dark'; // Fallback to 'dark' if no theme is stored in localStorage
   });
 
   useEffect(() => {
-    // Remove both classes first
-    document.documentElement.classList.remove('dark', 'light');
-    // Add the current theme class
+    document.documentElement.classList.remove('dark');
     document.documentElement.classList.add(theme);
-    // Save to localStorage
+    // Save the current theme to localStorage for persistence
     saveTheme(theme);
-  }, [theme]);
+  }, [theme]); // Re-run effect when the theme changes
 
+  // function to toggle between dark and light theme changes need to be made here 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
+    setTheme((prevTheme) => (prevTheme === 'dark' ? 'dark' : 'dark')); // Keep only 'dark' theme for now 
   };
 
   return { theme, toggleTheme };
